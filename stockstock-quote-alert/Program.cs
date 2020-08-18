@@ -6,7 +6,7 @@ namespace stockstock_quote_alert
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            new Manager(args);
         }
     }
 }
