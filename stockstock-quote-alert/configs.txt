@@ -1,0 +1,8 @@
+﻿MailDe=
+NomeDe=
+MailPara=
+NomePara=
+MailSenha=
+Assunto=
+Host=
+Port=
