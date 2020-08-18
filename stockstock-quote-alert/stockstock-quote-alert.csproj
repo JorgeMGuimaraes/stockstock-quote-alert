@@ -6,4 +6,8 @@
     <RootNamespace>stockstock_quote_alert</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="MailKit" Version="2.8.0" />
+  </ItemGroup>
+
 </Project>
