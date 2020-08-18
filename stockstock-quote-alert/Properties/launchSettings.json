@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "stockstock-quote-alert": {
+      "commandName": "Project",
+      "commandLineArgs": "Petr4 20 22"
+    }
+  }
+}
