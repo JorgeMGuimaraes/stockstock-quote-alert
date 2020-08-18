@@ -20,7 +20,10 @@ namespace stockstock_quote_alert {
                 nomeStock = args[0];
                 valorRefVenda = double.Parse(args[1]);
                 valorRefCompra = double.Parse(args[2]);
-                Console.WriteLine($"nome: {nomeStock} compra: {valorRefCompra} venda: {valorRefVenda}"); 
+                Console.WriteLine($"nome: {nomeStock} compra: {valorRefCompra} venda: {valorRefVenda}");
+                //_ = new Correio();
+                var correio = new Correio();
+                correio.EnviarMensagem(nomeStock, "venda", valorRefVenda);
             }
         }
     }
