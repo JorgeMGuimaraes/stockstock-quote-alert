@@ -20,7 +20,7 @@
             if(args.Length != 3) {
                 Console.WriteLine("Quantidade de parametros diferente do esperado");
                 Console.WriteLine("Uso: stockstock-quote-alert.exe STOCK venda compra");
-                Console.WriteLine("Ex: stockstock-quote-alert.exe PETR4 21.00 24.00");
+                Console.WriteLine("Ex: stockstock-quote-alert.exe PETR4 24,00 21,00\nUsar virgula como separador decimal.");
                 return;
             }
 
@@ -34,7 +34,7 @@
             Stock   = new Stock {
                 Simbolo             = args[0].ToUpper(),
                 PrecoCompra         = double.Parse(args[1]),
-                PrecoVenda          = double.Parse(args[1]),
+                PrecoVenda          = double.Parse(args[2]),
                 UltimaAtualizacao   = null
             };
 
@@ -69,8 +69,9 @@
 
             if (Stock.ValorAtualizado()) {
                 Console.WriteLine("Atualizando valores...");
-                if (Stock.PrecoDeCompraAlcancado()) { Correio.EnviarMensagem(Stock, "venda"); }
-                else if (Stock.PrecoDeVendaAlcancado()) { Correio.EnviarMensagem(Stock, "compra"); }
+                if (Stock.PrecoDeCompraAlcancado()) { Correio.EnviarMensagem(Stock, "compra"); }
+                else if (Stock.PrecoDeVendaAlcancado()) { Correio.EnviarMensagem(Stock, "venda"); }
+                Console.WriteLine($"Proxima atualizacao em {intervaloOperacoes} minutos.");
             }
             return;
         }
