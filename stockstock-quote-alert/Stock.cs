@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Text;
 
 namespace stockstock_quote_alert {
@@ -39,8 +40,10 @@ namespace stockstock_quote_alert {
         internal void AtualizarValores(string json) {
             var resultado = JObject.Parse(json);
             try {
-                PrecoAtual          = double.Parse((string)resultado["results"][Simbolo]["price"]) / 100;
+                var formato         = new NumberFormatInfo { NumberDecimalSeparator = "." };
+                PrecoAtual          = double.Parse((string)resultado["results"][Simbolo]["price"], formato);
                 UltimaAtualizacao   = DateTime.Parse((string)resultado["results"][Simbolo]["updated_at"]);
+                Nome                = (string)resultado["results"][Simbolo]["name"];
             }
             catch (Exception e) {
                 UltimaAtualizacao   = null;
