@@ -1,12 +1,5 @@
-﻿using System;
-
-namespace stockstock_quote_alert
-{
-    class Program
-    {
-        static void Main(string[] args)
-        {
-            new Manager(args);
-        }
+﻿namespace stockstock_quote_alert {
+    class Program {
+        static void Main(string[] args) => new Manager(args);
     }
 }
