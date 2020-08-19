@@ -12,5 +12,6 @@
         public string Host { get; set; }
         public int Port { get; set; }
         public string UrlApi { get; set; }
+        public string ApiKey { get; set; }
     }
 }

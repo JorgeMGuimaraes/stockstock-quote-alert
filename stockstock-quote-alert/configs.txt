@@ -1,8 +1,10 @@
 ﻿MailDe=
 NomeDe=
+MailSenha=
 MailPara=
 NomePara=
-MailSenha=
 Assunto=
 Host=
 Port=
+UrlApi=
+ApiKey=
