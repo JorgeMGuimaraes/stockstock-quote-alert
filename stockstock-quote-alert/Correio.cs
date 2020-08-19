@@ -28,15 +28,17 @@ namespace stockstock_quote_alert {
             var mail        = new MimeMessage();
             mail.From.Add(new MailboxAddress(ConfigMail.NomeDe, ConfigMail.MailDe));
             mail.To.Add(new MailboxAddress(ConfigMail.NomePara, ConfigMail.MailPara));
-            mail.Subject    = $"{ConfigMail.Assunto}: {stock} atingiu valor de {tipo}";
+            mail.Subject    = $"{ConfigMail.Assunto}: {stock.Simbolo} atingiu valor de {tipo}";
             mail.Body       = new TextPart("plain") {
-                Text        = $@"   Sr. {ConfigMail.NomePara},
-Conforme suas configurações de compra e venda a stock {stock.Simbolo} atingiu o preço de {tipo}, de {stock.PrecoAtual}.
+                Text        = $@"    Sr. {ConfigMail.NomePara},
+
+Conforme suas configurações de compra e venda a stock {stock.Simbolo} atingiu o preço de {tipo} de R$ {stock.PrecoAtual}.
+
 Dados Gerais:
-    Stock: {stock.Simbolo} - {stock.Nome}
-    Preço de {tipo}: R$ {((tipo == "venda") ? stock.PrecoVenda : stock.PrecoCompra)}
-    Preço Atual: R$ {stock.PrecoAtual}
-    Atualizado em: {stock.UltimaAtualizacao}"
+    - Stock: {stock.Simbolo} - {stock.Nome}
+    - Preço de {tipo}: R$ {((tipo == "venda") ? stock.PrecoVenda : stock.PrecoCompra)}
+    - Preço Atual: R$ {stock.PrecoAtual}
+    - Atualizado em: {stock.UltimaAtualizacao} (Dados do servidor)"
                 };
             return mail;
         }
